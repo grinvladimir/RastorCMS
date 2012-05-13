@@ -1,3 +1,3 @@
 RastorCMS
 =========
-Author: [http://rastor.name|Orest Budjak]
+http://rastor.name
