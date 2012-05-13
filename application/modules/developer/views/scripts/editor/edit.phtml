@@ -1,0 +1,65 @@
+<?php if (!isset($this->notFound)) { ?>
+    <?php if ($this->notWritable) { ?>
+        <span style="color: red; padding-left: 10px;">
+            Файл не доступен для записи!
+        </span>
+    <?php } ?>
+    <br/><textarea id="code" name="code"><?php echo $this->content; ?></textarea>
+    <div style="margin: 5px;" onclick="CodeMirror.commands.save();">
+        <input type="button" id="save-button" value="Сохранить" />
+    </div>
+    <style type="text/css">
+        .CodeMirror {
+            border-top: 1px solid #bbb;
+            border-bottom: 1px solid #bbb;
+        }
+        .CodeMirror-scroll {
+            height: auto;
+            overflow-y: hidden;
+            overflow-x: auto;
+            width: 100%;
+        }
+        .activeline {
+            background: #e8f2ff !important;
+        }
+    </style>
+    <script>
+        var sourcecode = '';
+                            
+        CodeMirror.commands.save = function(){
+            $.post('<?php echo Rastor_Url::get('admin', array('module' => 'developer', 'controller' => 'editor', 'action' => 'save')); ?>', {
+                filename: '<?php echo $this->filename; ?>',
+                data: sourcecode
+            }, function (data){
+                if (data == '-1'){
+                    alert('<?php echo 'File save error!'; ?>');
+                }
+            });
+            $("#save-button").button({disabled : true});
+        }
+                                
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            lineNumbers: true,
+            matchBrackets: true,
+            mode: "application/x-httpd-php",
+            indentUnit: 4,
+            indentWithTabs: true,
+            enterMode: "keep",
+            tabMode: "shift",
+            onCursorActivity: function() {
+                editor.setLineClass(hlLine, null, null);
+                hlLine = editor.setLineClass(editor.getCursor().line, null, "activeline");
+            },
+            onChange: function(){
+                sourcecode = editor.getValue();
+                $("#save-button").button('enable');
+            }
+        });
+            
+        var hlLine = editor.setLineClass(0, "activeline");
+            
+        $("#save-button").button({disabled : true});
+    </script>
+<?php } else { ?> 
+    <div class="content"><p>Файл не найден!</p></div>
+<?php } ?>

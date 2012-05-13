@@ -1,0 +1,14 @@
+<h1>Статьи</h1>
+<?php foreach ($this->paginator as $article) { ?>
+    <div class="article">
+        <h3><a href="<?php echo Rastor_Url::get('article', array('uri' => $article->uri)); ?>"><?php echo $article->name; ?></a></h3>
+        <div class="content">
+            <?php if (!empty($article->thumb)){ ?>
+            <a href="<?php echo Rastor_Url::get('article', array('uri' => $article->uri)); ?>"><img src="<?php echo $article->thumb; ?>" class="thumb" alt="" /></a>
+            <?php } ?>
+            <?php echo $article->smallcontent; ?>
+        </div>
+        <div class="footer"><a href="<?php echo Rastor_Url::get('article', array('uri' => $article->uri)); ?>">подробнее</a></div>
+    </div>
+<?php } ?>
+<?php echo $this->paginator; ?>

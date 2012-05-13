@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <?php echo $this->partial('inc.head.phtml'); ?>
+    </head>
+    <body>
+        <div id="wrapper">
+            <header id="header">
+                <a href="/"><div id="logo"></div></a>
+                <?php echo $this->action('show', 'index', 'menu'); ?>
+            </header><!-- #header-->
+            <section id="middle">
+                <div id="container">
+                    <div id="content">
+                        <?php echo $this->layout()->content; ?>
+                    </div><!-- #content-->
+                </div><!-- #container-->
+                <aside id="sideLeft">
+                    <div id="cart_holder">
+                        <?php echo $this->action('cart', 'index', 'catalog'); ?>
+                    </div>
+                    <div class="box">
+                        <div class="header">Каталог продукции</div>
+                        <div class="content">
+                            <?php echo $this->action('showlist', 'index', 'catalog'); ?>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <?php echo $this->action('special', 'index', 'catalog'); ?>
+                </aside><!-- #sideLeft -->
+            </section><!-- #middle-->
+            <footer id="footer">
+                <p><a href="http://adamit.com.ua/">Создание сайтов</a> Adamit</p>
+            </footer><!-- #footer -->
+        </div><!-- #wrapper -->
+
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<div class="content">
+    <div class="gtable"></div>
+</div>
+<script type="text/javascript">
+    $('.gtable').RastorTable({
+        buttons: ['edit', 'remove'],
+        columns: ['id', '<?php echo $this->translate('Название'); ?>'],
+        colWidth: [30, 0],
+        startMsg: eval('(' + '<?php echo $this->messager; ?>' + ')'),
+        removeUrl: '<?php echo Rastor_Url::get('admin', array('module' => 'menu', 'controller' => 'cmsmenu', 'action' => 'remove')); ?>',
+        saveUrl: '<?php echo Rastor_Url::get('admin', array('module' => 'menu', 'controller' => 'cmsmenu', 'action' => 'save', 'id' => $this->id)); ?>',
+        reloadUrl: '<?php echo Rastor_Url::get('admin', array('module' => 'menu', 'controller' => 'cmsmenu', 'action' => 'tabledata')); ?>',
+        sortUrl: '<?php echo Rastor_Url::get('admin', array('module' => 'menu', 'controller' => 'cmsmenu', 'action' => 'sort')); ?>',
+        translation: eval('(' + '<?php echo $this->tableTranslations; ?>' + ')')
+    });
+</script>

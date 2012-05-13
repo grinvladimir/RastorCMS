@@ -1,0 +1,17 @@
+<?php if (count($this->products)) { ?>
+    <div class="box">
+        <div class="header">Спец предложение</div>
+        <div class="content">
+            <?php foreach ($this->products as $item) { ?>
+                <div class="product">
+                    <?php if (!empty($item->thumb)) { ?><a href="<?php echo Rastor_Url::get('product', array('id' => $item->id)) ?>"><img src="<?php echo $item->thumb; ?>" alt=""></a><?php } ?>
+                    <div class="info">
+                        <a href="<?php echo Rastor_Url::get('product', array('id' => $item->id)) ?>"><?php echo $item->name; ?></a>
+                        <?php if (!empty($item->old_price)) { ?><div class="oldprice"><?php echo $item->old_price; ?> p.</div><?php } ?>
+                        <div class="price"><?php echo $item->price; ?> p.</div>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+<?php } ?>

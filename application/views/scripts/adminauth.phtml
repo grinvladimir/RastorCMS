@@ -1,0 +1,31 @@
+<?php echo $this->doctype(); ?>
+<html>
+    <head>
+        <?php echo $this->render('inc.admin_head.phtml'); ?>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <div class="main">
+                    <div class="logo">
+                        <div class="version"></div>
+                    </div>
+                </div>
+                <div class="bottom"></div>
+            </div>
+            <div id="loginpanel">
+                <div class="box">
+                    <h1><?php echo $this->translate('Вход в админпанель'); ?></h1>
+                    <div class="content">
+                        <?php echo $this->layout()->content; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="main">
+                Copyright © 2011 Adamit
+            </div>
+        </div>
+    </body>
+</html>

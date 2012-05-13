@@ -1,0 +1,11 @@
+<h1>Статьи</h1>
+<div class="article">
+    <h3><?php echo $this->article->name; ?></h3>
+    <div class="content">
+        <?php if (!empty($this->article->picture)) { ?>
+            <img src="<?php echo $this->article->picture; ?>" class="thumb" alt="" />
+        <?php } ?>
+        <?php echo $this->article->content; ?>
+    </div>
+    <div class="footer"><a href="<?php echo Rastor_Url::get('articles'); ?>">назад</a></div>
+</div>

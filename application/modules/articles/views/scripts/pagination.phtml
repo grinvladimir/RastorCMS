@@ -1,0 +1,15 @@
+<?php if ($this->pageCount) { ?>
+    <div class="paginator">
+        <ul>
+            <?php if ($this->pageCount > 1) { ?>
+                <?php foreach ($this->pagesInRange as $page) { ?>
+                    <?php if ($page != $this->current) { ?>
+                        <li><a href="<?php echo $this->url(array('page' => $page)); ?>"><?php echo $page ?></a></li>
+                    <?php } else { ?>
+                        <li class="active"><a href="<?php echo $this->url(array('page' => $page)); ?>"><?php echo $page ?></a></li>
+                    <?php } ?>
+                <?php } ?>
+            <?php } ?>
+        </ul>
+    </div>
+<?php } ?>

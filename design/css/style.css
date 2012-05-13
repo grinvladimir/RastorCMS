@@ -1,0 +1,483 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+:focus {
+    outline: 0;
+}
+ins {
+    text-decoration: none;
+}
+del {
+    text-decoration: line-through;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+header, nav, section, article, aside, footer {
+    display: block;
+}
+body {
+    font: 12px/18px Arial, Tahoma, Verdana, sans-serif;
+    width: 100%;
+    background: url(../img/bg.jpg) no-repeat;
+    background-attachment: fixed;
+}
+a {
+    color: blue;
+    outline: none;
+    text-decoration: underline;
+}
+a:hover {
+    text-decoration: none;
+}
+p {
+    margin: 0 0 18px
+}
+img {
+    border: none;
+}
+input {
+    vertical-align: middle;
+}
+#wrapper {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+#header {
+    height: 345px;
+    background: url(../img/header.png) no-repeat;
+    position: relative;
+}
+
+#logo {
+    position: absolute;
+    top: 115px;
+    left: -12px;
+    height: 228px;
+    width: 1000px;
+    background: url(../img/logo.png) no-repeat;
+}
+
+#header ul{
+    position: absolute;
+    top: 73px;
+    left: 30px;
+}
+
+#header ul li {
+    display: block;
+    float: left;
+    border-left: 1px solid #652c02;
+}
+
+#header ul li:first-child {
+    border: none;
+}
+
+#header ul li a{
+    color: #652c02;
+    display: block;
+    margin: 0 10px;
+    font-family: Georgia, "Century Schoolbook L", Serif;
+    font-size: 22px;
+    font-style: italic;
+    text-decoration: none;
+}
+
+#header ul li a:hover, #header ul li.active a{
+    text-decoration: underline;
+}
+
+/* Middle
+-----------------------------------------------------------------------------*/
+#middle {
+    border-left: 255px solid transparent;
+    height: 1%;
+    position: relative;
+    background: url(../img/bg.png) repeat-y;
+    background-position: -256px;
+}
+#middle:after {
+    content: '.';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+}
+#container {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+    margin-right: -100%;
+}
+#content {
+    padding: 20px 45px 0 25px;
+    color: #652c02;
+    font-family: Georgia, "Century Schoolbook L", Serif;
+    font-size: 18px;
+    font-style: italic;
+}
+
+#content p{
+    text-align: justify;
+    margin: 10px 10px 0 0;
+    line-height: 140%;
+}
+
+h1, h2{
+    display: block;
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 30px;  
+}
+
+.result{
+    color: #000;
+    font-family: Georgia, "Century Schoolbook L", Serif;
+    font-size: 14px;
+    font-style: italic;
+    margin: 20px;
+}
+
+.result a{
+    color: #652c02;
+}
+
+.result h1{
+    font-size: 20px;
+    color: #652c02;
+}
+
+/* Sidebar Left
+-----------------------------------------------------------------------------*/
+#sideLeft {
+    float: left;
+    width: 255px;
+    position: relative;
+    left: -255px;
+    background-color: transparent;
+    padding-left: 13px;
+}
+
+#sideLeft .cart{
+    color: #652c02;
+    font-family: Georgia, "Century Schoolbook L", Serif;
+    font-size: 14px;
+    font-style: italic;
+    background: url(../img/cart.png) no-repeat top right;
+    height: 30px;
+    margin: 20px 30px 0 30px;
+    padding-top: 5px;
+}
+
+#sideLeft .cart a{
+    color: #652c02;
+}
+
+#sideLeft .box {
+    width: 100%;
+}
+
+#sideLeft .box .header{
+    margin-top: 40px;
+    width: 100%;
+    background: #813406;
+    height: 30px;
+    font-family: Georgia, "Century Schoolbook L", Serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #fff;
+    padding-top: 13px;
+    text-align: center;
+    -webkit-border-radius: 21px;
+    -moz-border-radius: 21px;
+    border-radius: 21px;
+}
+
+#sideLeft .box .content{
+    padding: 10px 0 0 10px;
+}
+
+#sideLeft ul {
+    margin-left: 20px;
+}
+
+#sideLeft ul li a{
+    color: #652c02;
+    font-family: Georgia, "Century Schoolbook L", Serif;
+    font-size: 18px;
+    font-style: italic;
+    text-decoration: none;
+}
+
+#sideLeft ul li a:hover, #sideLeft ul li.active a{
+    text-decoration: underline;
+}
+
+.product.cart {
+    height: 120px;
+    margin-top: 10px;
+}
+
+.product.cart a.remove{
+    color: #fe0000;
+    font-size: 14px;
+    display: block;
+}
+
+.product {
+    position: relative;
+    width: 215px;
+    height: 100px;
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.product .info{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 108px;
+    height: 100px;
+    font-family: Georgia, "Century Schoolbook L", Serif;
+    font-style: italic;
+    font-size: 13px;
+}
+
+.product .info a{
+    color: #7a3806;
+    text-decoration: none;
+}
+
+.product .info .price{
+    position: absolute;
+    color: #000;
+    bottom: 0px;
+    left: 0px;
+}
+
+.product .info .count{
+    position: absolute;
+    color: #000;
+    bottom: 14px;
+    left: 0px;
+}
+
+.product .info .oldprice{
+    position: absolute;
+    color: #fb0006;
+    bottom: 14px;
+    left: 0px;
+    text-decoration: line-through;
+}
+
+.product .info a:hover{
+    text-decoration: underline;
+}
+
+.productimg {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.prodcutcontent {
+    position: relative;
+}
+
+.productinfo{
+    position: absolute;
+    width: 340px;
+    overflow: hidden;
+    top: 0px;
+    right: 0px;
+}
+
+.productinfo .key{
+    font-size: 16px;
+    display: block;
+    margin-right: 40px;
+    font-weight: bold;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.productinfo .value{
+    color: #000;
+    float: left;
+}
+
+.productinfo .value span{
+    color: #fb080c;
+    text-decoration: line-through;
+    margin-right: 20px;
+}
+
+.button{
+    margin-top: 40px;
+    background: #813406;
+    width: 250px;
+    height: 30px;
+    border: 0;
+    font-family: Georgia, "Century Schoolbook L", Serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #fff;
+    padding: 13px 13px 0 13px;
+    text-align: center;
+    -webkit-border-radius: 21px;
+    -moz-border-radius: 21px;
+    border-radius: 21px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button.submit{
+    height: 43px;
+    padding: 0;
+    margin: 0;
+}
+
+dl {
+    margin-top: 20px;
+}
+
+dl dt{
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+dl input[type=text], textarea{
+    width: 300px;
+    color: #000;
+    border: 1px solid #6f3910;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+dl .error {
+    margin-bottom: 5px;
+    color: #cd0a0a;
+    font-size: 13px;
+}
+
+textarea{
+    height: 150px;
+}
+
+.article {
+    margin-bottom: 20px;
+}
+
+.article h3 {
+    display: block;
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.article h3 a{
+    color: #652c02;
+}
+
+.article .content img.thumb {
+    float: left;
+    margin: 0 10px 10px 0;
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.article .content{
+    font-size: 16px;
+    line-height: 140%;
+}
+
+.article .footer {
+    font-size: 16px;
+    line-height: 140%;
+    margin-top: 10px;
+    text-align: right;
+    padding-right: 30px;
+    clear: both;
+}
+
+.article .footer a{
+    color: #652c02;
+}
+
+.paginator {
+    padding-right: 30px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.paginator ul {
+    float: right;
+}
+
+.paginator li {
+    display: block;
+    margin: 10px;
+    float: left;
+}
+
+.paginator li a{
+    color: #652c02;
+}
+
+.paginator li.active a{
+    color: #000;
+}
+
+/* Footer
+-----------------------------------------------------------------------------*/
+#footer {
+    height: 90px;
+    background: url(../img/footer.png) no-repeat;
+    text-align: center;
+}
+
+#footer p{
+    padding-top: 60px;
+    color: #652c02;
+    font-family: Georgia, "Century Schoolbook L", Serif;
+    font-style: italic;
+}
+
+#footer p a{
+    color: #652c02;
+}
+
+.clear {
+    clear: both;
+}

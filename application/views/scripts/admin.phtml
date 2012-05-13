@@ -1,0 +1,60 @@
+<?php echo $this->doctype() ?>
+<html>
+    <head>
+        <?php echo $this->render('inc.admin_head.phtml'); ?>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <div class="main">
+                    <div class="logo">
+                        <div class="version"></div>
+                    </div>
+                </div>
+                <div class="bottom"></div>
+                <div id="user_info">
+                    <div>
+                        <a href="<?php echo Rastor_Url::get('default'); ?>" target="_blank"><?php echo $this->translate('Перейти на сайт'); ?></a>
+                    </div>
+                    <div class="exit">
+                        <a href="<?php echo Rastor_Url::get('admin', array('action' => 'logout')); ?>"><?php echo $this->translate('Выйти'); ?></a>
+                    </div>
+                    <?php echo $this->action('userpanel', 'admin', 'core'); ?>
+                </div>
+            </div>
+
+            <div id="middle">
+                <div id="container">
+                    <div id="mcontent">
+                        <div class="box">
+                            <?php echo $this->action('breadcrumb', 'admin', 'core'); ?>
+                            <?php echo $this->layout()->content ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar" id="sideLeft">
+                    <div class="box menu">
+                        <h2><?php echo $this->translate('Меню'); ?></h2>
+                        <div class="content">
+                            <?php echo $this->action('cmsmenu', 'admin', 'core'); ?>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="footer">
+            <div class="main">
+                Copyright &copy; 2011 GlobalVision.com.ua
+            </div>
+        </div>
+        
+        <div style="display: none;">
+            <div id="dialog" title="">
+
+            </div>
+        </div>
+    </body>
+</html>

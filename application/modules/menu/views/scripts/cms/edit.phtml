@@ -1,0 +1,19 @@
+<div class="content" id="main_content">
+    <?php echo $this->form; ?>
+</div>
+<script type="text/javascript">
+    $('#main_content').RastorMessager({
+        data: eval('(' + '<?php echo $this->messager; ?>' + ')')
+    });
+    $('.tree_holder').RastorTree({
+        data: eval('(' + '<?php echo $this->list; ?>' + ')'),
+        saveUrl: '<?php echo Rastor_Url::get('admin', array('module' => 'menu', 'controller' => 'cmsmenu', 'action' => 'save', 'id' => $this->id)); ?>',
+        reloadUrl: '<?php echo Rastor_Url::get('admin', array('module' => 'menu', 'controller' => 'cmsmenu', 'action' => 'treedata', 'id' => $this->id)); ?>',
+        removeUrl: '<?php echo Rastor_Url::get('admin', array('module' => 'menu', 'controller' => 'cmsmenuitem', 'action' => 'remove')); ?>',
+        editUrl: '<?php echo substr(Rastor_Url::get('admin', array('module' => 'menu', 'controller' => 'cmsmenuitem', 'action' => 'edit', 'id' => '0')), 0, -1); ?>',
+        translation: eval('(' + '<?php echo $this->treeTranslations; ?>' + ')')
+    });
+    $("#new_item").click(function(){
+        document.location = '<?php echo Rastor_Url::get('admin', array('module' => 'menu', 'controller' => 'cmsmenuitem', 'action' => 'add', 'id' => $this->id)); ?>';
+    });
+</script>

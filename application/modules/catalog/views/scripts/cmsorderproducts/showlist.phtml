@@ -1,0 +1,9 @@
+<div class="content">
+    <dl>
+        <dt><label><?php echo $this->translate('Продукты заказа'); ?>:</label></dt>
+        <dd><?php echo $this->RastorTable(); ?></dd>
+        <dt><label><?php echo $this->translate('Полная стоимость'); ?>:</label></dt>
+        <dd><?php echo $this->totalPrice; ?></dd>
+    </dl>
+    <?php echo $this->form; ?>
+</div>

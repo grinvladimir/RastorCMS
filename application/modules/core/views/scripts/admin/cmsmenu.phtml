@@ -1,0 +1,2 @@
+<?php
+    echo $this->navigation()->menu($this->menu)->setAcl(Zend_Registry::get('Acl'))->setRole(Rastor_Auth::getInstance()->getRole());

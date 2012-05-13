@@ -1,0 +1,15 @@
+<h1><?php echo $this->product->name; ?></h1>
+
+<div class="prodcutcontent">
+    <?php if (!empty($this->product->picture)) { ?><a class="fancy" href="<?php echo $this->product->picture; ?>"><img src="<?php echo $this->product->picture; ?>" class="productimg" alt="" /></a><?php } ?>
+    <div class="productinfo">
+        <div class="key">Цена:</div>
+        <div class="value"><?php if (!empty($this->product->old_price)) { ?><span><?php echo $this->product->old_price; ?> p.</span><?php } ?> <?php echo $this->product->price; ?> p.</div>
+        <div class="clear"></div>
+        <div class="key">Наличие:</div>
+        <div class="value"><?php echo ($this->product->exist) ? 'В наличии' : 'Нет'; ?></div>
+        <div class="button tocart" onclick="addProduct(<?php echo $this->product->id; ?>)">Добавить в корзину</div>
+    </div>
+
+    <?php echo $this->product->content; ?>
+</div>

@@ -1,0 +1,43 @@
+<?php
+$this->headLink()->appendStylesheet('/design/css/style.css')
+        ->appendStylesheet('/design/js/fancybox/jquery.fancybox-1.3.4.css');
+
+
+$this->headScript()->appendFile('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+        ->appendFile('/design/js/fancybox/jquery.easing-1.3.pack.js')
+        ->appendFile('/design/js/fancybox/jquery.fancybox-1.3.4.pack.js');
+
+echo $this->headMeta();
+echo $this->headTitle();
+echo $this->headLink();
+echo $this->headStyle();
+echo $this->headScript();
+?>
+<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<script>
+    function addProduct(id){
+        $.get("<?php echo Rastor_Url::get('addproduct'); ?>",{
+            'id': id
+        }, function(data){
+            $("#cart_holder").html(data);
+            $.fancybox(
+            '<div class="result"><h1>Вы добавили товар в корзину</h1><a href="<?php echo Rastor_Url::get('cart'); ?>">Перейти в корзину</a> или <a href="javascript:;" onclick="$.fancybox.close();">Закрыть это окно</a></div>',
+            {
+                'showCloseButton': false,
+                'autoDimensions': true,
+                'transitionIn': 'none',
+                'transitionOut': 'none'
+            });
+        });
+    }
+    function deleteProduct(id, element){
+        $.get("<?php echo Rastor_Url::get('deleteproduct'); ?>",{
+            'id': id
+        }, function(data){
+            $(element).parent().remove();
+            $("#cart_holder").html(data);
+            document.location = '<?php echo Rastor_Url::get('cart'); ?>';
+        });
+    }
+</script>
