@@ -459,6 +459,45 @@ textarea{
     color: #000;
 }
 
+table.cart {
+    width: 100%;
+
+}
+
+table.cart a{
+    color: #652c02;
+}
+
+table.cart tr td{
+    vertical-align: middle;
+    text-align: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #bbb;
+}
+
+table.cart {
+    font-size: 13px;
+}
+
+table.cart img{
+    max-width: 50px;
+}
+
+table.cart tr th{
+    border-bottom: 1px solid #000;
+}
+
+table.cart input[type=text] {
+    width: 50px;
+    color: #000;
+    border: 1px solid #6f3910;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+}
+
 /* Footer
 -----------------------------------------------------------------------------*/
 #footer {

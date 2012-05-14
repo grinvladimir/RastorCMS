@@ -65,6 +65,25 @@ class Catalog_Model_Cart {
         return $this->_count;
     }
 
+    public function setProductsCounts($array){
+        foreach ($array as $key => $value) {
+            $this->setProductCount($key, $value);
+        }
+        $this->genPrice();
+        $this->save();
+    }
+    
+    public function setProductCount($id, $count) {
+        $count = (int)$count;
+        if (is_int($count) && ($count > 0)) {
+            foreach ($this->_items as $key => $value) {
+                if ($id == $value->id) {
+                    $this->_items[$key]->_count = $count;
+                }
+            }
+        }
+    }
+
     private function incCount($id) {
         foreach ($this->_items as $item) {
             if ($id == $item->id) {

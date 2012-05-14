@@ -4,20 +4,40 @@
 <?php } else { ?>
     <p>Только что вы заказали у нас такие товары</p>
 
-    <?php foreach ($this->items as $item) { ?>
-        <div class="product cart">
-            <?php if (!empty($item->thumb)) { ?><a href="<?php echo Rastor_Url::get('product', array('id' => $item->id)) ?>"><img src="<?php echo $item->thumb; ?>" alt=""></a><?php } ?>
-            <div class="info">
-                <a href="<?php echo Rastor_Url::get('product', array('id' => $item->id)) ?>"><?php echo $item->name; ?></a>
-                <div class="count"><?php echo $item->_count; ?> шт.</div>
-                <div class="price"><?php echo $item->price; ?> p.</div>
-            </div>
-            <a href="#" class="remove" onclick="deleteProduct(<?php echo $item->id; ?>, this); return false;">Удалить из корзины</a>
-        </div>
-    <?php } ?>
+    <div id="cart_holder">
+        <form>
+            <table class="cart">
+                <tr>
+                    <th></th>
+                    <th>Название</th>
+                    <th>Количество (шт.)</th>
+                    <th>Цена</th>
+                    <th>Сума</th>
+                </tr>
+                <?php foreach ($this->items as $item) { ?>
+                    <tr>
+                        <td><?php if (!empty($item->thumb)) { ?><a href="<?php echo Rastor_Url::get('product', array('id' => $item->id)) ?>"><img src="<?php echo $item->thumb; ?>" alt=""></a><?php } ?></td>
+                        <td><a href="<?php echo Rastor_Url::get('product', array('id' => $item->id)) ?>"><?php echo $item->name; ?></a></td>
+                        <td><input type="text" name="<?php echo $item->id; ?>" value="<?php echo $item->_count; ?>" /></td>
+                        <td><?php echo $item->price; ?> р.</td>
+                        <td><?php echo $item->_count * $item->price; ?> р.</td>
+                    </tr>
+                <?php } ?>
+            </table>    
+        </form>
+        <div class="clear"></div>
+        <p>Всего: <?php echo $this->price; ?> р.</p>
+    </div>
+    <button type="buton" class="button submit" id="calculate" style="margin: 20px 0;">Пересчитать</button>
+    <script type="text/javascript">
+        $('#calculate').click(function(){
+            console.log($('#cart_holder form').serializeArray());
+            $.get('<?php echo Rastor_Url::get('fullcartdata'); ?>', $('#cart_holder form').serializeArray(), function(data){
+                $('#cart_holder').html(data);
+            });
+        });
+    </script>
 
-    <div class="clear"></div>
-    <p>Всего: <?php echo $this->price; ?> р.</p>
     <p>Вы можете их удалить из корзины либо оформить заказ</p>
     <?php echo $this->form; ?>
 <?php } ?>

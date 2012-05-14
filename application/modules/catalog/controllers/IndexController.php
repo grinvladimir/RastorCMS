@@ -67,7 +67,7 @@ class Catalog_IndexController extends Rastor_Controller_Action {
         $this->view->price = $cart->getPrice();
         $this->view->count = $cart->getCount();
     }
-
+    
     public function addproductAction() {
         $this->_helper->layout()->disableLayout();
 
@@ -90,6 +90,17 @@ class Catalog_IndexController extends Rastor_Controller_Action {
         $this->view->count = $cart->getCount();
     }
 
+    public function fullcartdataAction() {
+        $this->_helper->layout()->disableLayout();
+        $cart = new Catalog_Model_Cart();
+        
+        $cart->setProductsCounts($this->_getAllParams());
+
+        $this->view->items = $cart->getItems();
+        $this->view->price = $cart->getPrice();
+        $this->view->count = $cart->getCount();
+    }
+    
     public function cartviewAction() {
         $productModel = new Catalog_Model_Product();
         $cart = new Catalog_Model_Cart();

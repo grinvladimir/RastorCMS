@@ -1,0 +1,22 @@
+<form>
+    <table class="cart">
+        <tr>
+            <th></th>
+            <th>Название</th>
+            <th>Количество (шт.)</th>
+            <th>Цена</th>
+            <th>Сума</th>
+        </tr>
+        <?php foreach ($this->items as $item) { ?>
+            <tr>
+                <td><?php if (!empty($item->thumb)) { ?><a href="<?php echo Rastor_Url::get('product', array('id' => $item->id)) ?>"><img src="<?php echo $item->thumb; ?>" alt=""></a><?php } ?></td>
+                <td><a href="<?php echo Rastor_Url::get('product', array('id' => $item->id)) ?>"><?php echo $item->name; ?></a></td>
+                <td><input type="text" name="<?php echo $item->id; ?>" value="<?php echo $item->_count; ?>" /></td>
+                <td><?php echo $item->price; ?> р.</td>
+                <td><?php echo $item->_count * $item->price; ?> р.</td>
+            </tr>
+        <?php } ?>
+    </table>    
+</form>
+<div class="clear"></div>
+<p>Всего: <?php echo $this->price; ?> р.</p>

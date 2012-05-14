@@ -28,6 +28,14 @@ return array(
                     'action' => 'cartview'
                 )
         ),
+        'fullcartdata' => new Zend_Controller_Router_Route(
+                'fullcartdata',
+                array(
+                    'module' => 'catalog',
+                    'controller' => 'index',
+                    'action' => 'fullcartdata'
+                )
+        ),
         'addproduct' => new Zend_Controller_Router_Route(
                 'addproduct',
                 array(
